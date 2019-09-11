@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>A-level</title>
+</head>
+<body>
+	<header></header>
+	<main>
+		<script>
+			function testArguments() {
+				for (var i = 0; i <arguments.length; i++) {
+					console.log ( `$ { arguments [ i ] }`)
+				}
+			console.log ( `${ arguments.callee.name }`)
+			}
+		</script>
+		<script>
+			function userInfo () {
+				if (this.registered == true) {
+					console.log ("Дата регистрации: " + this.data)
+				} 
+				else {
+					console.log(" Незарегистрированый пользователь: " + this.name)
+				}
+			}
+			function User (name,registered,data) {
+				this.name = name;
+				this.registered = registered;
+				this.data = data;
+				this.getInfo = userInfo
+			}
+			var people = new User ("string", true, (new Date()).toLocaleString().split (",") [0])
+			people.getInfo()
+		</script>
+		<script>
+			objOne = {
+				name: "Игорь",
+				registered: true,
+				data: (new Date()). toLocaleString().split (",") [0]
+			};
+			objTwo = {
+				name: "Артём",
+				registered: false,
+				data: (new Date()). toLocaleString().split (",") [0]
+			};
+			function userInfo() {
+				if (this.registered == true) {
+					console.log ("Дата регистрации: " + this.data)
+				} 
+				else {
+					console.log(" Незарегистрированый пользователь: " + this.name)
+				}
+			}
+			objOne.getInfo = userInfo;
+			objTwo.getInfo = userInfo;
+			objTwo.getInfo ()
+		</script>
+	</main>
+	<footer></footer>
+</body>
+</html>
